@@ -1,0 +1,50 @@
+my_list = [1, 2, 3]
+my_list = ["one", 2, 3]
+
+print(my_list)
+print(len(my_list))
+print(my_list[0])
+print(my_list[1:3])
+
+another_list = ["four", 5, "six"]
+
+# Concatenate lists
+new_list = my_list + another_list
+print(new_list)
+
+# Mutate list item
+new_list[1] = "two"
+print(new_list)
+
+# Add new items
+new_list.append(7)
+print(new_list)
+
+# Remove items
+
+# Pop() removes an item from the end of the list
+removed = new_list.pop()
+print(removed)
+print(new_list)
+
+# Pop(index) removes the item in that position
+removed = new_list.pop(0)
+print(removed)
+print(new_list)
+
+# Sort lists
+strings_list = ['a', 'e', 'x', 'b', 'c']
+nums_list = [5, 3, 10, 8]
+
+strings_list.sort()
+nums_list.sort()
+
+print(strings_list)
+print(nums_list)
+
+strings_list.reverse()
+nums_list.reverse()
+
+print(strings_list)
+print(nums_list)
+

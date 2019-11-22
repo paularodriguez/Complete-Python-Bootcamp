@@ -1,0 +1,31 @@
+hello = "Hello, my name is Paula"
+
+print(hello)
+
+hello_break_line = "Hello,\nmy name is Paula"
+
+print(hello_break_line)
+
+# String length
+print(len(hello))
+
+# Indexing
+
+alphabet = "abcdefghijklmnopqrstuvwxyz"
+
+# Second character
+print(alphabet[1])
+
+# Last character
+print(alphabet[-1])
+
+# Start and stop samples
+# NOTE: Stop index does not include character in that position
+print(alphabet[:5])
+print(alphabet[2:])
+print(alphabet[2:6])
+
+# Start and stop sample with step
+print(alphabet[0:10:2])
+# Reverses the string
+print(alphabet[::-1])

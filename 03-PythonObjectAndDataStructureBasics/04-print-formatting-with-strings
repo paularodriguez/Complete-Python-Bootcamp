@@ -1,0 +1,38 @@
+# --- .format() method --
+
+# Formatting with the .format() method
+
+# String formatting
+
+hello = "My name is {}. I'm {} years old."
+print(hello.format("Paula", 26))
+
+hello_with_indexing = "My name is {1}. I'm {0} years old."
+print(hello_with_indexing.format(26, "Paula"))
+
+hello_with_variables = "My name is {name}. I'm {age} years old."
+print(hello_with_variables.format(name="Paula", age=26))
+
+# Float formatting: "{value:width.precision f}"
+
+result = 10000 / 777
+print("The result was {r:1.3f}".format(r=result))
+
+
+
+# --- F Strings --
+
+# F Strings or formatted string literals
+# Another way, available since Python 3.6
+
+name = "Paula"
+age = 26
+print(f"Hello, my name is {name} and I'm {age} years old")
+
+
+# --- OLD WAY: Using placeholders ---
+
+name = "Paula"
+age = 26
+print(f"Hello, my name is %s and I'm %d years old"%(name,age))
+

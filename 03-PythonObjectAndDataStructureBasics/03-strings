@@ -29,3 +29,27 @@ print(alphabet[2:6])
 print(alphabet[0:10:2])
 # Reverses the string
 print(alphabet[::-1])
+
+# Strings are immutable
+name = "Sam"
+# name[0] = "T" doesn't work
+
+# If we want to convert Sam to Pam we can do the following
+name = name[1:]
+name = 'P' + name
+print(name)
+
+# String multiplication
+letter = 'z'
+letter = letter * 10
+print(letter)
+
+# Useful methods
+x = "Hello World"
+
+print(x.upper())
+print(x.lower())
+
+# Split by default splits by whitespace, but we can indicate the character
+print(x.split())
+print(x.split('W'))

@@ -1,0 +1,23 @@
+# Sets: Unordered collections of unique elements
+# There can only be one representative of the same object
+
+myset = set()
+
+print(myset)
+
+# Add elements
+myset.add(1)
+myset.add(2)
+print(myset)
+
+myset.add(2)
+
+# Previous value is not added -> already exists
+print(myset)
+
+# Casting a list to one set
+
+mylist = [1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3]
+mysetlist = set(mylist)
+
+print(mysetlist)

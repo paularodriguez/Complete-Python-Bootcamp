@@ -1,0 +1,54 @@
+# Open a file
+
+myfile = open("myfile.txt")
+
+# Read file content
+
+text = myfile.read()
+print(text)
+
+# Empty because cursor is at the end of the file
+text2 = myfile.read()
+print(text2)
+
+# Resets the cursor
+myfile.seek(0)
+text3 = myfile.read()
+print(text3)
+
+# Readlines -> Returns an array with the lines
+myfile.seek(0)
+lines = myfile.readlines()
+print(lines)
+
+# Close file
+
+myfile.close()
+
+# Avoid errors when opening files -> no worries about closing files
+
+with open("myfile.txt") as my_file:
+    content = my_file.read()
+
+print("Content:", content)
+
+# Write files: Reading, writing, appending modes
+
+# r, read only
+# w, write only (overwrites existing files or creates a new file)
+# a, append only
+# r+, reading and writing
+# w+, writing and reading (overwrites existing files or creates a new file)
+
+with open("mynewfile.txt", mode='r') as f:
+    print(f.read())
+
+# Add new line to existing file
+
+with open("mynewfile.txt", mode='a') as f:
+    print(f.write("\nFOUR ON FOURTH"))
+
+# Create new file
+
+with open("createdfile.txt", mode='w') as f:
+    print(f.write("Hello woooorld!"))

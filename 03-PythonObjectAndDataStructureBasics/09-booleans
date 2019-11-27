@@ -1,0 +1,11 @@
+# First letter uppercase
+
+print(True)
+print(False)
+print(type(False))
+
+# None key word
+
+b = None
+print(b)
+print(type(b))

@@ -1,0 +1,27 @@
+# Tuples: Very similar to lists but with one key difference - immutability
+
+tuple = (1, 2, 3)
+list = [1, 2, 3]
+
+print(type(tuple))
+print(type(list))
+
+# Length
+print(len(tuple))
+
+# Allows multiple object types, indexing and slicing
+
+tuple1 = ("hello", 1, "bye")
+print(tuple1)
+
+print(tuple1[0])
+print(tuple1[1:])
+
+tuple2 = ("a", "a", "b")
+
+# Count 'a'
+print(tuple2.count("a"))
+
+# Immutability
+
+# tuple[0] = 10 - ERROR

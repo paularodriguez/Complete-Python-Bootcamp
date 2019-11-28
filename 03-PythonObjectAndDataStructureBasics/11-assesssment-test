@@ -1,0 +1,118 @@
+# Write an equation that uses multiplication, division, an exponent, addition, and subtraction that is equal to 100.25.
+
+result = 50 * (2 ** 2) / 2 + 0.5 - 0.25
+print(result)
+
+# Answer these 3 questions without typing code. Then type code to check your answer.
+
+# What is the value of the expression 4 * (6 + 5): 44
+
+print(4 * (6 + 5))
+
+# What is the value of the expression 4 * 6 + 5: 29
+
+print(4 * 6 + 5)
+
+# What is the value of the expression 4 + 6 * 5: 34
+
+print(4 + 6 * 5)
+
+# What is the type of the result of the expression 3 + 1.5 + 4? - float
+
+print(type(3 + 1.5 + 4))
+
+# What would you use to find a number’s square root, as well as its square?
+
+print(64 ** 0.5)
+print(8 ** 2)
+
+# Given the string 'hello' give an index command that returns 'e'. Enter your code in the cell below:
+
+print("hello"[1])
+
+# Reverse the string 'hello' using slicing:
+
+print("hello"[::-1])
+
+# Given the string hello, give two methods of producing the letter 'o' using indexing.
+
+print("hello"[4])
+print("hello"[-1])
+
+# Build this list [0,0,0] two separate ways.
+
+list1 = [0, 0, 0]
+print(list1)
+
+list2 = [0] * 3
+print(list2)
+
+# Reassign 'hello' in this nested list to say 'goodbye' instead:
+
+list3 = [1, 2, [3, 4, 'hello']]
+list3[2][2] = "goodbye"
+
+print(list3)
+
+# Sort the list below:
+
+list4 = [5, 3, 4, 6, 1]
+list4.sort()
+
+print(list4)
+print(sorted(list4))
+
+# Using keys and indexing, grab the 'hello' from the following dictionaries:
+
+d = {'simple_key': 'hello'}
+print(d['simple_key'])
+
+d1 = {'k1': {'k2': 'hello'}}
+print(d1['k1']['k2'])
+
+d2 = {'k1': [{'nest_key': ['this is deep', ['hello']]}]}
+print(d2['k1'][0]['nest_key'][1][0])
+
+d3 = {'k1': [1, 2, {'k2': ['this is tricky', {'tough': [1, 2, ['hello']]}]}]}
+print(d3['k1'][2]['k2'][1]['tough'][2][0])
+
+# What is the major difference between tuples and lists?
+# Tuples are immutable
+
+# How do you create a tuple?
+tuple = (1, 2, 3)
+print(tuple)
+print(type(tuple))
+
+# What is unique about a set?
+# Sets have unique elements
+
+list5 = [1, 2, 2, 33, 4, 4, 11, 22, 3, 3, 2]
+set1 = set(list5)
+print(set1)
+
+# 2 > 3 : False
+print(2 > 3)
+
+# 3 <= 2: False
+print(3 <= 2)
+
+# 3 == 2.0 : False
+print(3 == 2.0)
+
+# 3.0 == 3 : True
+print(3.0 == 3)
+
+# 4 ** 0.5 != 2: False
+print(4 ** 0.5 != 2)
+
+# Final Question: What is the boolean output of the cell block below?
+
+# two nested lists
+l_one = [1, 2, [3, 4]]
+l_two = [1, 2, {'k1': 4}]
+
+# True or False? : False
+result = l_one[2][0] >= l_two[2]['k1']
+
+print(result)

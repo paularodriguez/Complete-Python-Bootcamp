@@ -1,0 +1,10 @@
+# True
+print(1 < 2 and 2 < 3)
+
+# Chaining
+# True
+print(1 < 2 < 3)
+
+# False
+print(1 < 2 > 3)
+

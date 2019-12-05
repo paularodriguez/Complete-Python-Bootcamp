@@ -1,0 +1,47 @@
+# While loops
+
+x = 0
+
+while x < 5:
+    print(f'The current value of x is {x}')
+    x += 1
+else:
+    print("X is not less than 5")
+
+# Useful keywords:
+
+# break: Breaks out of the current closest enclosing loop
+# continue: Goes to the top of the closest enclosing loop
+# pass: Does nothing at all
+
+# pass: Useful for comments, to avoid syntax errors, it does nothing
+
+x = [1, 2, 3]
+for item in x:
+    # Comment
+    pass
+
+# continue: skips and goes to the next item
+
+mystring = "Sammy"
+
+for letter in mystring:
+    if letter == 'a':
+        continue
+    print(letter)
+
+# breaks: breaks the loop and stops it
+
+for letter in mystring:
+    if letter == 'a':
+        break
+    print(letter)
+
+# While examples
+
+x = 0
+while x < 5:
+    if x == 2:
+        break
+    print(x)
+    x += 1

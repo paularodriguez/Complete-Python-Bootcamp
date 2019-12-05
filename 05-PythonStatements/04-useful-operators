@@ -1,0 +1,85 @@
+# range
+
+for num in range(3):
+    print(num)
+
+# Start - end
+# for num in range(2,5):
+#     print(num)
+
+# Start - end - step
+# for num in range(0, 11, 2):
+#     print(num)
+
+# Create one list using range
+
+mylist = list(range(0, 11, 2))
+print(mylist)
+
+# enumerate function: Tracks the iteration index
+
+word = "abcde"
+for index, letter in enumerate(word):
+    print(index)
+    print(letter)
+    print('\n')
+
+# Zip function: zips together two lists and pair up their items
+# Ignores everything extra
+
+mylist1 = [1, 2, 3, 4, 5]
+mylist2 = ['a', 'b', 'c', 'd', 'e']
+mylist3 = [100, 200]
+mylist4 = ['A', 'B', 'C', 'D', 'E', 'F']
+
+for item in zip(mylist1, mylist2, mylist3, mylist4):
+    print(item)
+
+# Can be casted to a list
+
+for a, b, c, d in list(zip(mylist1, mylist2, mylist3, mylist4)):
+    print(a, b, c, d)
+
+# Check if object is in a list
+
+print('x' in ['x', 'y', 'z'])
+print('w' in ['x', 'y', 'z'])
+
+# For dictionaries - keys
+print('key1' in {'key1': 22})
+
+# For dictionaries - values
+print(22 in {'key1': 22}.values())
+
+# Min value
+numbers_list = list(range(3, 10))
+print(min(numbers_list))
+
+# Max value
+print(max(numbers_list))
+
+# Random shuffle
+from random import shuffle
+
+mylist5 = list(range(0, 11))
+
+# It updates the original list
+shuffle(mylist5)
+
+print(mylist5)
+
+# Get a random integer
+from random import randint
+
+# We pass lower and higher values
+random_number = randint(0, 100)
+print(random_number)
+
+# Input user text
+
+user_name = input("Whats your name?")
+print("User name: ", user_name)
+
+# cast to integer
+user_age = int(input("How old are you?"))
+print("User age: ", user_age)

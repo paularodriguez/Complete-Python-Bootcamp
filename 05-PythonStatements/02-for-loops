@@ -1,0 +1,61 @@
+# For loop example
+
+mylist = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+for number in mylist:
+    print(number)
+
+# Print only even numbers
+
+for number in mylist:
+    if number % 2 == 0:
+        print(number)
+
+        # Sum numbers of the list
+
+list_sum = 0
+for number in mylist:
+    list_sum += number
+
+print("Sum: ", list_sum)
+
+# Iterate strings
+
+mystring = "Hello world"
+
+for letter in mystring:
+    print(letter)
+
+# Iterate tuples
+
+tup = (1, 2, 3)
+for item in tup:
+    print(item)
+
+# Iterate a list of tuples: Tuple packing
+
+mylist2 = [(1, 2, 3), (4, 5, 6), (7, 8, 9)]
+for (a, b, c) in mylist2:
+    print(a)
+    print(b)
+    print(c)
+
+# Iterate a dictionary
+
+mydict = {'ky': 1, 'k2': 2, 'k3': 3}
+
+# Prints only keys
+for item in mydict:
+    print(item)
+
+# Prints only keys
+for key in mydict.keys():
+    print(key)
+
+# Prints only values
+for value in mydict.values():
+    print(value)
+
+# Prints key and values
+for key, value in mydict.items():
+    print(key, "-", value)

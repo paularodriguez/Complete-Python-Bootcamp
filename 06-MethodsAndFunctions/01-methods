@@ -1,0 +1,20 @@
+mylist = [1, 2, 3]
+
+# Append
+mylist.append(4)
+print(mylist)
+
+# Get methods help
+print(help(mylist.insert))
+
+# Help on built-in function insert:
+#
+# insert(index, object, /) method of builtins.list instance
+#     Insert object before index.
+#
+# None
+
+mylist.insert(1, 100)
+print(mylist)
+
+# [1, 100, 2, 3, 4]

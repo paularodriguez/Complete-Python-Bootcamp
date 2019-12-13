@@ -76,7 +76,15 @@ def old_macdonald(name):
     return new_string
 
 
+# Another version
+def old_macdonald_v2(name):
+    first_half = name[:3]
+    second_half = name[3:]
+    return first_half.capitalize() + second_half.capitalize()
+
+
 print(old_macdonald('macdonald'))
+print(old_macdonald_v2('macdonald'))
 separator()
 
 
@@ -151,9 +159,21 @@ def has_33(numbers):
     return False
 
 
+# Improved version
+def has_33_v2(numbers):
+    for i in range(0, len(numbers) - 1):
+        if numbers[i] == 3 and numbers[i + 1] == 3:
+            return True
+    return False
+
+
 print(has_33([1, 3, 3]))
 print(has_33([1, 3, 1, 3]))
 print(has_33([3, 1, 3]))
+print(has_33_v2([1, 3, 3]))
+print(has_33_v2([1, 3, 1, 3]))
+print(has_33_v2([3, 1, 3]))
+separator()
 
 
 # PAPER DOLL: Given a string, return a string where for every character in the original there are three characters
@@ -221,9 +241,33 @@ def summer_69(numbers):
     return total
 
 
+def summer_69_v2(numbers):
+    total = 0
+    add = True
+
+    for num in numbers:
+        while add:
+            if num != 6:
+                total += num
+                break
+            else:
+                add = False
+        while not add:
+            if num != 9:
+                break
+            else:
+                add = True
+                break
+
+    return total
+
+
 print(summer_69([1, 3, 5]))
 print(summer_69([4, 5, 6, 7, 8, 9]))
 print(summer_69([2, 1, 6, 9, 11]))
+print(summer_69_v2([1, 3, 5]))
+print(summer_69_v2([4, 5, 6, 7, 8, 9]))
+print(summer_69_v2([2, 1, 6, 9, 11]))
 separator()
 
 

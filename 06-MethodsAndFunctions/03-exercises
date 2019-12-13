@@ -1,0 +1,32 @@
+def myfunc1():
+    print("Hello World")
+
+
+def myfunc2(name='Name'):
+    print("Hello {}".format(name))
+
+
+def myfunc3(a):
+    if a:
+        return "Hello"
+    else:
+        return "Goodbye"
+
+
+def myfunc4(x, y, z):
+    if z:
+        return x
+    else:
+        return y
+
+
+def myfunc5(a, b):
+    return a + b
+
+
+def is_even(value):
+    return value % 2 == 0
+
+
+def is_greater(a, b):
+    return a > b

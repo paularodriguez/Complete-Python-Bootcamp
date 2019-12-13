@@ -1,0 +1,274 @@
+def separator():
+    print("----------------------------------------------------")
+
+
+# WARMUP SECTION
+
+# LESSER OF TWO EVENS:
+# Write a function that returns the lesser of two given numbers if both numbers are even,
+# but returns the greater if one or both numbers are odd
+# lesser_of_two_evens(2,4) --> 2
+# lesser_of_two_evens(2,5) --> 5
+
+
+def is_even(number):
+    return number % 2 == 0
+
+
+def lesser_of_two_evens(a, b):
+    if is_even(a) and is_even(b):
+        return min(a, b)
+    else:
+        return max(a, b)
+
+
+print(lesser_of_two_evens(2, 4))
+print(lesser_of_two_evens(2, 5))
+separator()
+
+
+# ANIMAL CRACKERS: Write a function takes a two-word string and returns True if both words begin with same letter
+# animal_crackers('Levelheaded Llama') --> True
+# animal_crackers('Crazy Kangaroo') --> False
+
+
+def animal_crackers(string):
+    words = string.split()
+    return words[0][0].lower() == words[1][0].lower()
+
+
+print(animal_crackers('Levelheaded Llama'))
+print(animal_crackers('Crazy Kangaroo'))
+separator()
+
+
+# MAKES TWENTY: Given two integers, return True if the sum of the integers is 20
+# or if one of the integers is 20. If not, return False
+# makes_twenty(20,10) --> True
+# makes_twenty(12,8) --> True
+# makes_twenty(2,3) --> False
+
+
+def makes_twenty(n1, n2):
+    return sum((n1, n2)) == 20 or n1 == 20 or n2 == 20
+
+
+print(makes_twenty(20, 10))
+print(makes_twenty(12, 8))
+print(makes_twenty(2, 3))
+separator()
+
+
+# LEVEL 1 PROBLEMS
+
+# OLD MACDONALD: Write a function that capitalizes the first and fourth letters of a name
+# old_macdonald('macdonald') --> MacDonald
+#
+# Note: 'macdonald'.capitalize() returns 'Macdonald'
+
+def old_macdonald(name):
+    new_string = ""
+    for index, letter in enumerate(name):
+        if index == 0 or index == 3:
+            new_string += letter.upper()
+        else:
+            new_string += letter
+    return new_string
+
+
+print(old_macdonald('macdonald'))
+separator()
+
+
+# MASTER YODA: Given a sentence, return a sentence with the words reversed
+# master_yoda('I am home') --> 'home am I'
+# master_yoda('We are ready') --> 'ready are We'
+#
+# Note: The .join() method may be useful here. The .join() method allows you to join together strings in a list with some connector string. For example, some uses of the .join() method:
+#
+# >>> "--".join(['a','b','c'])
+# >>> 'a--b--c'
+#
+# This means if you had a list of words you wanted to turn back into a sentence, you could just join them with a single space string:
+#
+# >>> " ".join(['Hello','world'])
+# >>> "Hello world"
+
+
+def master_yoda(sentence):
+    words = sentence.split()
+    words.reverse()
+    return " ".join(words)
+
+
+print(master_yoda('I am home'))
+print(master_yoda('We are ready'))
+
+separator()
+
+
+# ALMOST THERE: Given an integer n, return True if n is within 10 of either 100 or 200
+# almost_there(90) --> True
+# almost_there(104) --> True
+# almost_there(150) --> False
+# almost_there(209) --> True
+#
+# NOTE: abs(num) returns the absolute value of a number
+
+
+def almost_there(number):
+    difference_100 = 100 - number
+    difference_200 = 200 - number
+    return abs(difference_100) <= 10 or abs(difference_200) <= 10
+
+
+print(almost_there(90))
+print(almost_there(104))
+print(almost_there(150))
+print(almost_there(209))
+separator()
+
+
+# LEVEL 2 PROBLEMS
+
+# FIND 33:
+# Given a list of ints, return True if the array contains a 3 next to a 3 somewhere.
+# has_33([1, 3, 3]) → True
+# has_33([1, 3, 1, 3]) → False
+# has_33([3, 1, 3]) → False
+
+
+def has_33(numbers):
+    one_3 = False
+    for i in numbers:
+        if i == 3:
+            if one_3:
+                return True
+            else:
+                one_3 = True
+        else:
+            one_3 = False
+    return False
+
+
+print(has_33([1, 3, 3]))
+print(has_33([1, 3, 1, 3]))
+print(has_33([3, 1, 3]))
+
+
+# PAPER DOLL: Given a string, return a string where for every character in the original there are three characters
+# paper_doll('Hello') --> 'HHHeeellllllooo'
+# paper_doll('Mississippi') --> 'MMMiiissssssiiippppppiii'
+
+
+def paper_doll(string):
+    new_string = ""
+    for letter in string:
+        new_string += letter * 3
+    return new_string
+
+
+print(paper_doll('Hello'))
+print(paper_doll('Mississippi'))
+separator()
+
+
+# BLACKJACK: Given three integers between 1 and 11, if their sum is less than or equal to 21, return their sum.
+# If their sum exceeds 21 and there's an eleven, reduce the total sum by 10.
+# Finally, if the sum (even after adjustment) exceeds 21, return 'BUST'
+# blackjack(5,6,7) --> 18
+# blackjack(9,9,9) --> 'BUST'
+# blackjack(9,9,11) --> 19
+
+
+def blackjack(a, b, c):
+    total = sum((a, b, c))
+    if total <= 21:
+        return total
+    elif total > 21 and 11 in (a, b, c):
+        return total - 10
+    else:
+        return 'BUST'
+
+
+print(blackjack(5, 6, 7))
+print(blackjack(9, 9, 9))
+print(blackjack(9, 9, 11))
+separator()
+
+
+# SUMMER OF '69: Return the sum of the numbers in the array,
+# except ignore sections of numbers starting with a 6 and extending to the next 9
+# (every 6 will be followed by at least one 9). Return 0 for no numbers.
+# summer_69([1, 3, 5]) --> 9
+# summer_69([4, 5, 6, 7, 8, 9]) --> 9
+# summer_69([2, 1, 6, 9, 11]) --> 14
+
+
+def summer_69(numbers):
+    total = 0
+    skip = False
+    for i in numbers:
+        # Enable skip
+        if i == 6:
+            skip = True
+        # Sum only if skip is disabled
+        elif not skip:
+            total += i
+        # Reset skip if current number is 9
+        elif i == 9:
+            skip = False
+    return total
+
+
+print(summer_69([1, 3, 5]))
+print(summer_69([4, 5, 6, 7, 8, 9]))
+print(summer_69([2, 1, 6, 9, 11]))
+separator()
+
+
+# CHALLENGING PROBLEMS
+
+# SPY GAME: Write a function that takes in a list of integers and returns True if it contains 007 in order
+#  spy_game([1,2,4,0,0,7,5]) --> True
+#  spy_game([1,0,2,4,0,5,7]) --> True
+#  spy_game([1,7,2,0,4,5,0]) --> False
+
+def spy_game(numbers):
+    string_numbers = ""
+    for n in numbers:
+        if n == 0 or n == 7:
+            string_numbers += str(n)
+    return "007" in string_numbers
+
+
+print(spy_game([1, 2, 4, 0, 0, 7, 5]))
+print(spy_game([1, 0, 2, 4, 0, 5, 7]))
+print(spy_game([1, 7, 2, 0, 4, 5, 0]))
+separator()
+
+
+# COUNT PRIMES: Write a function that returns the number of prime numbers that exist up to and including a given number
+# count_primes(100) --> 25
+
+# By convention, 0 and 1 are not prime.
+
+def is_prime(number):
+    if number <= 1:
+        return False
+
+    for y in range(2, number):
+        if not (number % y):
+            return False
+    return True
+
+
+def count_primes(num):
+    count = 0
+    for i in range(0, num + 1):
+        if is_prime(i):
+            count += 1
+    return count
+
+
+print(count_primes(100))

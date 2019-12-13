@@ -1,0 +1,61 @@
+def name_function():
+    '''
+    DOCSTRING: Information about the function
+    INPUT: name
+    OUTPUT: Hello ...
+    '''
+
+    print("Hello")
+
+
+# Add docstring and visualize it
+print(help(name_function))
+
+
+def say_hello(name='NAME'):
+    return 'Hello ' + name
+
+
+# Default parameter is used
+print(say_hello())
+
+# Normal usage
+print(say_hello("Paula"))
+
+
+def add(n1, n2):
+    return n1 + n2
+
+
+result = add(20, 30)
+print(result)
+
+
+# Sample function
+# Find out if the word "dog" is in a string
+
+def dog_check(mystring):
+    return 'dog' in mystring.lower()
+
+
+print(dog_check("My dog ran away"))
+print(dog_check("My Dog ran away"))
+print(dog_check("My cog ran away"))
+
+
+# PIG LATIN
+# If word starts with a vowel, add 'ay' to end
+# If word does not start with a vowel, put first letter at the end, then add 'ay'
+# word -> ordway
+# apple -> appleay
+
+def pig_latin(word):
+    first_letter = word[0]
+    if first_letter.lower() in 'aeiou':
+        return word + 'ay'
+    else:
+        return word[1:] + first_letter + 'ay'
+
+
+print(pig_latin("word"))
+print(pig_latin("apple"))

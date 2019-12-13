@@ -1,0 +1,21 @@
+def myfunc1(*args):
+    return sum(args)
+
+
+def myfunc2(*args):
+    even_args = []
+    for arg in args:
+        if arg % 2 == 0:
+            even_args.append(arg)
+
+    return even_args
+
+
+def myfunc3(string):
+    new_string = ""
+    for index, letter in enumerate(string):
+        if index % 2 == 0:
+            new_string += letter.upper()
+        else:
+            new_string += letter.lower()
+    return new_string

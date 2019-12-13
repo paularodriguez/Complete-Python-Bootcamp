@@ -1,0 +1,38 @@
+def myfunc(a, b):
+    # Returns 5 percent of the sum of a and b
+    return sum((a, b)) * 0.05
+
+
+print(myfunc(40, 60))
+
+
+# Receives a tuple as parameter
+# Allows multiple parameters
+def myfunc2(*args):
+    return sum(args) * 0.05
+
+
+print(myfunc2(40, 60))
+print(myfunc2(40, 60, 100))
+print(myfunc2(40, 60, 100, 200, 500))
+
+
+# Receives a key-value pairs (dictionaries) as parameter
+# kwargs means key-words arguments
+def myfunc3(**kwargs):
+    if 'fruit' in kwargs:
+        print("My fruit of choice is {}".format(kwargs['fruit']))
+    else:
+        print("I did not find any fruit here")
+
+
+myfunc3()
+myfunc3(fruit='apple', veggie='lettuce')
+
+
+# Example using both arguments types
+def myfunc4(*args, **kwargs):
+    print("I would like {} {}".format(args[0], kwargs['food']))
+
+
+myfunc4(10, 20, 30, fruit='orange', food="eggs", animal='dog')

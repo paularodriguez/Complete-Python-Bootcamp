@@ -1,0 +1,79 @@
+# MAP function
+
+# map(function, iterable)
+
+def square(num):
+    return num ** 2
+
+
+my_nums = [1, 2, 3, 4, 5]
+
+for item in map(square, my_nums):
+    print(item)
+
+# To get the list back
+square_nums = list(map(square, my_nums))
+print(square_nums)
+
+
+# Another example
+
+def splicer(mystring):
+    if len(mystring) % 2 == 0:
+        return 'EVEN'
+    else:
+        return mystring[0]
+
+
+names = ['Andy', 'Eve', 'Sally']
+splicer_names = list(map(splicer, names))
+print(splicer_names)
+
+
+# FILTER function
+
+def check_even(num):
+    return num % 2 == 0
+
+
+my_nums = [1, 2, 3, 4, 5, 6]
+even_nums = list(filter(check_even, my_nums))
+print(even_nums)
+
+
+# LAMBDA EXPRESSIONS
+
+# Initial function
+def square(num):
+    result = num ** 2
+    return result
+
+
+# Convert it to one lambda expression
+
+# Step 1
+def square(num):
+    return num ** 2
+
+
+# Step 2: One line
+def square(num): return num ** 2
+
+
+# Step 3: Remove function name and replace 'def' key word by 'lambda', remove 'return'
+lambda num: num ** 2
+
+# Step 4: Assign it to a variable
+square = lambda num: num ** 2
+
+print(square(5))
+
+# Use lambda function with one map or filter
+print(list(map(lambda num: num ** 2, my_nums)))
+print(list(filter(lambda num: num % 2 == 0, my_nums)))
+
+# Another example: Grab the first character of one string
+print(list(map(lambda name: name[0], names)))
+
+# Another example: Reverse strings
+print(list(map(lambda string: string[::-1], names)))

@@ -1,0 +1,66 @@
+x = 25
+
+
+def printer():
+    x = 50
+    return x
+
+
+# We get 25
+print(x)
+
+# We get 50
+print(printer())
+
+# LEGB Rule: Order that Python follows to look for variables
+#  - L: Local: Names assigned in any way within a function and not declared global in that function
+#  - E: Enclosing function locals: Names in the local scope of any and all enclosing functions, from inner to outer
+#  - G: Global: Names assigned at the top-level of a module file, or declared global in a def within the file
+#  - B: Build -in: Names preassigned in the build-in names module: open, range, SyntaxError...
+
+# Local variable example
+lambda num: num ** 2
+
+# Enclosing function locals example
+
+# GLOBAL
+name = "THIS IS A GLOBAL STRING"
+
+
+def greet():
+    # ENCLOSING
+    name = "Sammy"
+
+    def hello():
+        # LOCAL
+        # name = "I'm a local"
+        print("Hello " + name)
+
+    hello()
+
+
+greet()
+
+# Global variable example
+
+x = 50
+
+
+def func():
+    # It means that any local assignment affects global x
+    global x
+    print(f'X is {x}')
+
+    # Local reassignment
+    x = 'New value'
+    print(f'Variable locally changed to {x}')
+
+# X is 50
+print(x)
+
+
+# X is 'New Value'
+func()
+
+# X is 'New Value'
+print(x)

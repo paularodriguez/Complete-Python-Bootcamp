@@ -292,6 +292,24 @@ print(spy_game([1, 7, 2, 0, 4, 5, 0]))
 separator()
 
 
+# Solution version
+
+def spy_game_v2(nums):
+    code = [0, 0, 7, 'x']
+
+    for num in nums:
+        if num == code[0]:
+            code.pop(0)
+
+    return len(code) == 1
+
+
+print(spy_game_v2([1, 2, 4, 0, 0, 7, 5]))
+print(spy_game_v2([1, 0, 2, 4, 0, 5, 7]))
+print(spy_game_v2([1, 7, 2, 0, 4, 5, 0]))
+separator()
+
+
 # COUNT PRIMES: Write a function that returns the number of prime numbers that exist up to and including a given number
 # count_primes(100) --> 25
 
@@ -316,3 +334,33 @@ def count_primes(num):
 
 
 print(count_primes(100))
+
+
+# Challenge problem
+
+# PRINT BIG: Write a function that takes in a single letter, and returns a 5x5 representation of that letter
+#
+# print_big('a')
+# out:
+#     *
+#   *   *
+# *********
+# *       *
+# *       *
+
+def print_big(letter):
+    patterns = {1: '  *  ', 2: ' * * ', 3: '*   *', 4: '*****', 5: '**** ', 6: '   * ', 7: ' *   ', 8: '*   * ',
+                9: '*    '}
+
+    alphabet = {'A': [1, 2, 4, 3, 3], 'B': [5, 3, 5, 3, 5], 'C': [4, 9, 9, 9, 4], 'D': [5, 3, 3, 3, 5],
+                'E': [4, 9, 4, 9, 4]}
+
+    for pattern in alphabet[letter.upper()]:
+        print(patterns[pattern])
+
+
+print_big('a')
+print_big('b')
+print_big('c')
+print_big('d')
+print_big('e')

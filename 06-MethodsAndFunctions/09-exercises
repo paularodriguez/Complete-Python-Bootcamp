@@ -26,12 +26,23 @@ def ran_check(num, low, high):
         print(f'{num} is NOT in the range between {low} and {high}')
 
 
+## Another version
+
+def ran_check_v2(num, low, high):
+    if num in range(low, high):
+        print(f'{num} is in the range between {low} and {high}')
+    else:
+        print(f'{num} is NOT in the range between {low} and {high}')
+
+
 # 5 is in the range between 2 and 7
 ran_check(5, 2, 7)
+ran_check_v2(5, 2, 7)
 separator()
 
 # 9 is NOT in the range between 2 and 7
 ran_check(9, 2, 7)
+ran_check_v2(9, 2, 7)
 separator()
 
 
@@ -149,5 +160,12 @@ def ispangram(str, alphabet=string.ascii_lowercase):
     return len(alphabet) == 0
 
 
+## Another version
+def ispangram_v2(str, alphabet=string.ascii_lowercase):
+    alphaset = set(alphabet)
+    return alphaset <= set(str.lower())
+
+
 # True
 print(ispangram("The quick brown fox jumps over the lazy dog"))
+print(ispangram_v2("The quick brown fox jumps over the lazy dog"))

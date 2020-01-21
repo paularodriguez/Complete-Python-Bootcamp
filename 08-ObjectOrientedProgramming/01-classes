@@ -1,16 +1,47 @@
 class Dog:
+    # Class object attributes
+    # Same for any instance of a class
+    species = 'mammal'
 
-    # constructor
-    def __init__(self, breed, name, spots):
+    # Constructor
+    def __init__(self, breed, name):
         # Attributes
         self.breed = breed
         self.name = name
-        self.spots = spots
+
+    # Methods
+    def bark(self):
+        print("WOOF! my name is {}".format(self.name))
 
 
-my_dog = Dog(breed='Lab', name='Sammy', spots=False)
+my_dog = Dog(breed='Lab', name='Sammy')
 
 print(type(my_dog))
 print(my_dog.breed)
 print(my_dog.name)
-print(my_dog.spots)
+print(my_dog.species)
+
+my_dog.bark()
+
+
+class Circle:
+    # Class object attribute
+    pi = 3.14
+
+    # Constructor with default parameter
+    def __init__(self, radius=1):
+        self.radius = radius
+        self.area = radius * radius * Circle.pi
+
+    # Method
+    def get_circumference(self):
+        return 2 * Circle.pi * self.radius
+
+
+my_circle = Circle()
+print(my_circle.get_circumference())
+print(my_circle.area)
+
+my_circle_2 = Circle(30)
+print(my_circle_2.get_circumference())
+print(my_circle_2.area)

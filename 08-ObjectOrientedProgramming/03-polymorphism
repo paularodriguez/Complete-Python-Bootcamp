@@ -1,0 +1,71 @@
+class Dog:
+
+    def __init__(self, name):
+        self.name = name
+
+    def speak(self):
+        return self.name + " says woof!"
+
+
+class Cat:
+
+    def __init__(self, name):
+        self.name = name
+
+    def speak(self):
+        return self.name + " says meow!"
+
+
+niko = Dog("niko")
+felix = Cat("felix")
+
+print(niko.speak())
+print(felix.speak())
+
+# Polymorphism sample 1
+for pet_class in [niko, felix]:
+    print(type(pet_class))
+    print(pet_class.speak())
+
+
+# Polymorphism sample 2
+def pet_speak(pet):
+    print(pet.speak())
+
+
+pet_speak(niko)
+pet_speak(felix)
+
+print('-' * 20)
+
+
+# Abstract class
+class Animal:
+
+    def __init__(self, name):
+        self.name = name
+
+    def speak(self):
+        raise NotImplementedError("Subclass must implement this abstract method")
+
+
+class Dog(Animal):
+
+    def speak(self):
+        return self.name + " says woof!"
+
+
+class Cat(Animal):
+
+    def speak(self):
+        return self.name + " says meow!"
+
+
+my_animal = Animal('fred')
+# my_animal.speak() -> ERROR
+
+niko = Dog("niko")
+felix = Cat("felix")
+
+print(niko.speak())
+print(felix.speak())

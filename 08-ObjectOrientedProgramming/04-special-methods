@@ -1,0 +1,28 @@
+class Book:
+    def __init__(self, title, author, pages):
+        self.title = title
+        self.author = author
+        self.pages = pages
+
+    def __str__(self):
+        return f"{self.title} by {self.author}"
+
+    def __len__(self):
+        return self.pages
+
+    def __del__(self):
+        print("A book object has been deleted")
+
+
+b = Book('Python rocks', 'Jose', 200)
+
+# string method
+# Default str prints: <__main__.Book object at 0x1073f7550>
+# After define __str_ method, it prints: Python rocks by Jose
+print(b)
+
+# len method: 200
+print(len(b))
+
+# delete: A book object has been deleted
+del b

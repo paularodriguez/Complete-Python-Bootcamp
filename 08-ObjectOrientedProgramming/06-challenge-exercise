@@ -1,0 +1,53 @@
+# For this challenge, create a bank account class that has two attributes:
+#
+# owner
+# balance
+
+# and two methods:
+#
+# deposit
+# withdraw
+
+# As an added requirement, withdrawals may not exceed the available balance.
+#
+# Instantiate your class, make several deposits and withdrawals, and test to make sure the account can't be overdrawn.
+
+
+class BankAccount:
+
+    def __init__(self, owner, balance):
+        self.owner = owner
+        self.balance = balance
+
+    def deposit(self, money):
+        self.balance += money
+
+    def __str__(self):
+        return "Account owner: {}\nAccount balance: {} €".format(self.owner, self.balance)
+
+    def withdraw(self, money):
+        if self.balance - money < 0:
+            print("Funds Unavailable!")
+            return
+
+        self.balance -= money
+
+
+# Account
+ac1 = BankAccount("Paula", 1000)
+
+# Deposit 1
+ac1.deposit(50)
+print(ac1)
+
+# Withdraw 1
+ac1.withdraw(1000)
+print(ac1)
+
+# Withdraw 2
+ac1.withdraw(1000)
+print(ac1)
+
+# Withdraw 3
+ac1.withdraw(10)
+print(ac1)

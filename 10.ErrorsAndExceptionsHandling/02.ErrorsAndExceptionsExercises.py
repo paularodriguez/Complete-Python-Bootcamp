@@ -36,10 +36,12 @@ def ask():
             value = int(input("Input an integer:"))
         except:
             print("An error occurred! Please try again!")
+            continue
         else:
-            result = value ** 2
-            print("Thank you, your number squared is: " + str(result))
             break
+
+    result = value ** 2
+    print("Thank you, your number squared is: ", result)
 
 
 ask()

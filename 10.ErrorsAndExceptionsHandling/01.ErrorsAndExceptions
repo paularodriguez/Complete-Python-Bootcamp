@@ -37,12 +37,17 @@ finally:
 # Using try/exception into one function
 
 def ask_for_int():
-    try:
-        result = int(input("Please provide a number: "))
-    except:
-        print("Whoops! That is not a number")
-    finally:
-        print("End of try/except/finally")
+    while True:
+        try:
+            result = int(input("Please provide a number: "))
+        except:
+            print("Whoops! That is not a number")
+            continue
+        else:
+            print("Yes, thank you")
+            break
+        finally:
+            print("End of try/except/finally")
 
 
 ask_for_int()

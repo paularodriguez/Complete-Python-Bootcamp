@@ -1,0 +1,7 @@
+# Install pylint library: PyCharm -> Preferences -> Project -> Project Interpreter
+
+# Pylint checks static code
+# To run it: pylint script.py
+# Provides metrics like the number of lines of code, docstring, comments, duplicated code and errors
+# Finally it rates the code
+

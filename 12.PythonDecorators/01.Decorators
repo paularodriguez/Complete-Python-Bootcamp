@@ -1,0 +1,123 @@
+def separator():
+    print('-' * 20)
+
+
+# Decorator allow us to tack on extra functionality to an already existing function
+# They are placed on top of the original function
+
+def func():
+    return 1
+
+
+print(func())
+
+
+def hello():
+    print("Hello")
+
+
+# prints 'Hello'
+hello()
+
+# greet() prints 'Hello'
+greet = hello
+greet()
+
+# If we delete hello func, greet func continues working
+del hello
+# hello() fails
+# hello()
+# greet() works
+greet()
+
+separator()
+
+
+def say_hello(name='Paula'):
+    print('The say_hello() function has been executed')
+
+    def greet():
+        return '\t This is the greet() function inside say_hello!'
+
+    def welcome():
+        return '\t This is the welcome() function inside say_hello!'
+
+    print('I am going to return a function')
+
+    if name == 'Paula':
+        return greet
+    else:
+        return welcome
+
+
+# my_new_func stores the returned function
+my_new_func = say_hello('Paula')
+
+# If we call the function we get the desired output
+print(my_new_func())
+
+separator()
+
+
+# Another example
+
+def cool():
+    def super_cool():
+        return 'I am very cool'
+
+    return super_cool
+
+
+my_cool_func = cool()
+print(my_cool_func())
+
+separator()
+
+
+# Functions as arguments
+
+def hello():
+    return 'Hi Jose'
+
+
+def other(some_def_func):
+    print("Running other function")
+    print(some_def_func())
+
+
+# hello function is the parameter
+other(hello)
+
+separator()
+
+
+# DECORATORS
+
+
+def new_decorator(original_func):
+    def wrap_func():
+        print('Some extra code, before the original function')
+        original_func()
+        print("Some extra code, after the original function")
+
+    return wrap_func
+
+
+def func_needs_decorator():
+    print("I want to be decorated!!")
+
+
+# First way
+decorated_func = new_decorator(func_needs_decorator)
+decorated_func()
+
+separator()
+
+
+# RIGHT WAY
+@new_decorator
+def func_needs_decorator():
+    print("I want to be decorated!!")
+
+
+func_needs_decorator()

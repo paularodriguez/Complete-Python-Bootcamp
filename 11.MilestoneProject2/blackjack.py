@@ -124,3 +124,194 @@ class Chips:
     def lose_bet(self):
         self.total -= self.bet
         pass
+
+
+# Function Defintions
+# A lot of steps are going to be repetitive.
+# That's where functions come in!
+# The following steps are guidelines - add or remove functions as needed in your own program.
+
+# Step 6: Write a function for taking bets
+# Since we're asking the user for an integer value, this would be a good place to use try/except.
+# Remember to check that a Player's bet can be covered by their available chips.
+
+def take_bet(chips):
+    while True:
+        try:
+            chips.bet = int(input("How many chips would you like to bet?: "))
+        except ValueError:
+            print("Invalid bet. Please enter again your bet")
+            continue
+        else:
+            if chips.bet >= chips.total:
+                print("Sorry, your bet can't exceed {}".format(chips.total))
+            else:
+                break
+
+
+# c = Chips()
+# take_bet(c)
+
+
+# Step 7: Write a function for taking hits
+# Either player can take hits until they bust.
+# This function will be called during gameplay anytime a Player requests a hit,
+# or a Dealer's hand is less than 17.
+# It should take in Deck and Hand objects as arguments,
+# and deal one card off the deck and add it to the Hand.
+# You may want it to check for aces in the event that a player's hand exceeds 21.
+
+def hit(deck, hand):
+    card = deck.deal()
+    hand.add_card(card)
+    hand.adjust_for_ace()
+
+
+# Step 8: Write a function prompting the Player to Hit or Stand
+# This function should accept the deck and the player's hand as arguments, and assign playing as a global variable.
+# If the Player Hits, employ the hit() function above.
+# If the Player Stands, set the playing variable to False - this will control the behavior of a while loop later on in our code.
+
+def hit_or_stand(deck, hand):
+    global playing  # to control an upcoming while loop
+
+    while True:
+        x = input("Would you like to Hit or Stand? Enter 'h' or 's' ")
+
+        if x[0].lower() == 'h':
+            hit(deck, hand)  # hit() function defined above
+
+        elif x[0].lower() == 's':
+            print("Player stands. Dealer is playing.")
+            playing = False
+
+        else:
+            print("Sorry, please try again.")
+            continue
+        break
+
+
+# Step 9: Write functions to display cards
+# When the game starts, and after each time Player takes a card,
+# the dealer's first card is hidden and all of Player's cards are visible.
+# At the end of the hand all cards are shown, and you may want to show each hand's total value.
+# Write a function for each of these scenarios.
+
+def show_some(player, dealer):
+    print("\nDealer's Hand:")
+    print(" <card hidden>")
+    print('', dealer.cards[1])
+    print("\nPlayer's Hand:", *player.cards, sep='\n ')
+
+
+def show_all(player, dealer):
+    print("\nDealer's Hand:", *dealer.cards, sep='\n ')
+    print("Dealer's Hand =", dealer.value)
+    print("\nPlayer's Hand:", *player.cards, sep='\n ')
+    print("Player's Hand =", player.value)
+
+
+# Step 10: Write functions to handle end of game scenarios
+# Remember to pass player's hand, dealer's hand and chips as needed.
+
+def player_busts(player, dealer, chips):
+    print("Player busts!")
+    chips.lose_bet()
+
+
+def player_wins(player, dealer, chips):
+    print("Player wins!")
+    chips.win_bet()
+
+
+def dealer_busts(player, dealer, chips):
+    print("Dealer busts!")
+    chips.win_bet()
+
+
+def dealer_wins(player, dealer, chips):
+    print("Dealer wins!")
+    chips.lose_bet()
+
+
+def push(player, dealer, chips):
+    print("Dealer and Player tie! It's a push.")
+
+
+# GAME
+
+while True:
+    # Print an opening statement
+    print('Welcome to BlackJack! Get as close to 21 as you can without going over!\n\
+    Dealer hits until she reaches 17. Aces count as 1 or 11.')
+
+    # Create & shuffle the deck, deal two cards to each player
+    # -- Deck creation
+    deck = Deck()
+    deck.shuffle()
+
+    # -- Player cards
+    player_hand = Hand()
+    player_hand.add_card(deck.deal())
+    player_hand.add_card(deck.deal())
+
+    # -- Dealer cards
+    dealer_hand = Hand()
+    dealer_hand.add_card(deck.deal())
+    dealer_hand.add_card(deck.deal())
+
+    # Set up the Player's chips
+    player_chips = Chips()
+
+    # Prompt the Player for their bet
+    take_bet(player_chips)
+
+    # Show cards (but keep one dealer card hidden)
+    show_some(player_hand, dealer_hand)
+
+    while playing:  # recall this variable from our hit_or_stand function
+
+        # Prompt for Player to Hit or Stand
+        hit_or_stand(deck, player_hand)
+
+        # Show cards (but keep one dealer card hidden)
+        show_some(player_hand, dealer_hand)
+
+        # If player's hand exceeds 21, run player_busts() and break out of loop
+        if player_hand.value > 21:
+            player_busts(player_hand, dealer_hand, player_chips)
+            break
+
+        # If Player hasn't busted, play Dealer's hand until Dealer reaches 17
+        if player_hand.value <= 21:
+            while dealer_hand.value < 17:
+                hit(deck, dealer_hand)
+
+            # Show all cards
+            show_all(player_hand, dealer_hand)
+
+            # Run different winning scenarios
+            if dealer_hand.value > 21:
+                dealer_busts(player_hand, dealer_hand, player_chips)
+
+            elif dealer_hand.value > player_hand.value:
+                dealer_wins(player_hand, dealer_hand, player_chips)
+
+            elif dealer_hand.value < player_hand.value:
+                player_wins(player_hand, dealer_hand, player_chips)
+
+            else:
+                push(player_hand, dealer_hand)
+
+            # Inform Player of their chips total
+            print("\nPlayer's winnings stand at", player_chips.total)
+
+        # Ask to play again
+        new_game = input("Would you like to play another hand? Enter 'y' or 'n' ")
+
+        if new_game[0].lower() == 'y':
+            playing = True
+            continue
+        else:
+            print("Thanks for playing!")
+            break

@@ -282,36 +282,37 @@ while True:
             player_busts(player_hand, dealer_hand, player_chips)
             break
 
-        # If Player hasn't busted, play Dealer's hand until Dealer reaches 17
-        if player_hand.value <= 21:
-            while dealer_hand.value < 17:
-                hit(deck, dealer_hand)
+    # If Player hasn't busted, play Dealer's hand until Dealer reaches 17
+    if player_hand.value <= 21:
 
-            # Show all cards
-            show_all(player_hand, dealer_hand)
+        while dealer_hand.value < 17:
+            hit(deck, dealer_hand)
 
-            # Run different winning scenarios
-            if dealer_hand.value > 21:
-                dealer_busts(player_hand, dealer_hand, player_chips)
+        # Show all cards
+        show_all(player_hand, dealer_hand)
 
-            elif dealer_hand.value > player_hand.value:
-                dealer_wins(player_hand, dealer_hand, player_chips)
+        # Run different winning scenarios
+        if dealer_hand.value > 21:
+            dealer_busts(player_hand, dealer_hand, player_chips)
 
-            elif dealer_hand.value < player_hand.value:
-                player_wins(player_hand, dealer_hand, player_chips)
+        elif dealer_hand.value > player_hand.value:
+            dealer_wins(player_hand, dealer_hand, player_chips)
 
-            else:
-                push(player_hand, dealer_hand)
+        elif dealer_hand.value < player_hand.value:
+            player_wins(player_hand, dealer_hand, player_chips)
 
-            # Inform Player of their chips total
-            print("\nPlayer's winnings stand at", player_chips.total)
-
-        # Ask to play again
-        new_game = input("Would you like to play another hand? Enter 'y' or 'n' ")
-
-        if new_game[0].lower() == 'y':
-            playing = True
-            continue
         else:
-            print("Thanks for playing!")
-            break
+            push(player_hand, dealer_hand)
+
+    # Inform Player of their chips total
+    print("\nPlayer's winnings stand at: ", player_chips.total)
+
+    # Ask to play again
+    new_game = input("Would you like to play another hand? Enter 'y' or 'n' ")
+
+    if new_game[0].lower() == 'y':
+        playing = True
+        continue
+    else:
+        print("Thanks for playing!")
+        break

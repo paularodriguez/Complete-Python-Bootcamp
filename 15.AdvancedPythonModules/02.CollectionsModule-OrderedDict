@@ -1,0 +1,51 @@
+# An OrderedDict is a dictionary subclass that remembers the order in which its contents are added.
+
+from collections import OrderedDict
+
+# Traditional dictionaries don't care about order
+d = {}
+d['a'] = 1
+d['b'] = 2
+d['c'] = 3
+d['d'] = 4
+d['e'] = 5
+
+for k, v in d.items():
+    print(k, v)
+
+# OrderedDict
+d = OrderedDict()
+d['a'] = 1
+d['b'] = 2
+d['c'] = 3
+d['d'] = 4
+d['e'] = 5
+
+# Order is preserved
+for k, v in d.items():
+    print(k, v)
+
+# Are dictionaries equals?
+d1 = {}
+d1['a'] = 'A'
+d1['b'] = 'B'
+
+d2 = {}
+d2['b'] = 'B'
+d2['a'] = 'A'
+
+# True
+print(d1 == d2)
+
+# Using OrderedDict
+
+d1 = OrderedDict()
+d1['a'] = 'A'
+d1['b'] = 'B'
+
+d2 = OrderedDict()
+d2['b'] = 'B'
+d2['a'] = 'A'
+
+# False: Order is different
+print(d1 == d2)

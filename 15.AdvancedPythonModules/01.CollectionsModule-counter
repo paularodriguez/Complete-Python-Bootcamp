@@ -1,0 +1,45 @@
+# counter
+
+from collections import Counter
+
+# Counter counts the number of occurrences of each element in the list
+
+l = [1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 5, 5]
+c = Counter(l)
+
+print(c)
+# Counter({2: 6, 1: 5, 5: 5, 3: 3, 4: 3})
+
+
+s = 'aaaaaaaabbcccdddddd'
+c1 = Counter(s)
+
+print(c1)
+# Counter({'a': 8, 'd': 6, 'c': 3, 'b': 2})
+
+# Count words
+s1 = "How many times does each word show up in this sentence? word word up one one one one"
+words = s1.split()
+c2 = Counter(words)
+
+print(c2)
+# Counter({'one': 4, 'word': 3, 'up': 2, 'How': 1, 'many': 1, 'times': 1, 'does': 1, 'each': 1, 'show': 1, 'in': 1, 'this': 1, 'sentence?': 1})
+
+
+# Counter methods
+
+# - Most common
+print(c2.most_common(2))
+# [('one', 4), ('word', 3)]
+
+
+# Common patterns when using the Counter() object
+# sum(c.values())                 # total of all counts
+# c.clear()                       # reset all counts
+# list(c)                         # list unique elements
+# set(c)                          # convert to a set
+# dict(c)                         # convert to a regular dictionary
+# c.items()                       # convert to a list of (elem, cnt) pairs
+# Counter(dict(list_of_pairs))    # convert from a list of (elem, cnt) pairs
+# c.most_common()[:-n-1:-1]       # n least common elements
+# c += Counter()                  # remove zero and negative counts

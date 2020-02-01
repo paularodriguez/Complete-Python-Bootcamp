@@ -1,0 +1,97 @@
+from collections import Counter
+import sys
+
+
+# ---- CLASSES ---
+
+# Parent class Money
+class Money:
+    def __init__(self, name, value):
+        self.name = name
+        self.value = value
+
+
+# Child class Note
+class Note(Money):
+    def __init__(self, name, value):
+        Money.__init__(self, name, value)
+
+    def __str__(self):
+        return "NOTE: " + self.name
+
+
+# Child class Coin
+class Coin(Money):
+    def __init__(self, name, value):
+        Money.__init__(self, name, value)
+
+    def __str__(self):
+        return "COIN: " + self.name
+
+
+# ---- FUNCTIONS ---
+
+def formatFloatNumber(number):
+    '''
+    Formats a float number to have two decimals
+    :param number: The number
+    :return: Formatted number
+    '''
+    return float("{0:.2f}".format(number))
+
+
+# ---- PREPARE INITIAL DATA ---
+
+# List with available notes and coins
+available_money = []
+
+# Load notes
+notes = [5, 10, 20, 50, 100, 200, 500]
+for note in notes:
+    available_money.append(Note(str(note) + "€", note))
+
+# Load coins
+coins = [0.01, 0.02, 0.05, 0.1, 0.2, 0.5, 1, 2]
+for coin in coins:
+    name = str(coin * 100) + "cents" if coin < 1 else str(coin) + "€"
+    available_money.append(Coin(name, coin))
+
+# Sort money by value desc
+available_money.sort(key=lambda x: x.value, reverse=True)
+
+# ---- PROGRAM ---
+
+cost_value = formatFloatNumber(float(input("Enter the cost: ")))
+money_value = formatFloatNumber(float(input("Enter the money: ")))
+
+if money_value < cost_value:
+    print("There is not enough money")
+    sys.exit()
+
+if cost_value == money_value:
+    print("Given money is OK")
+    sys.exit()
+
+change_value = money_value - cost_value
+
+change = []
+money_index = 0
+
+while change_value > 0:
+    change_item = available_money[money_index]
+
+    if change_value - change_item.value >= 0:
+        change.append(change_item)
+        change_value = formatFloatNumber(change_value - change_item.value)
+
+    else:
+        money_index = money_index + 1
+
+#  Prepare result
+
+# We use a counter to group the notes and coins
+counter = Counter(change)
+
+# Print result
+for key in counter:
+    print("{} - {}".format(counter[key], key))

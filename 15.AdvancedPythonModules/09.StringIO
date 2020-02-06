@@ -1,0 +1,26 @@
+# StringIO module represents an in-memory file like object
+# This object can be used as input or output to most function that would expect a standard file object
+
+import io
+
+message = "This is just a normal string"
+
+# Use StringIO method to set as file object
+f = io.StringIO(message)
+
+# Then, we can treat it like a file object (read, write... actions)
+
+print(f.read())
+# This is just a normal string
+
+f.write(' Second line written to file like object')
+
+# Reset cursor
+f.seek(0)
+
+# Read again
+print(f.read())
+# This is just a normal string Second line written to file like object
+
+# Close the object when contents are no longer needed
+f.close()

@@ -1,0 +1,64 @@
+s = "hello world"
+
+print(s.capitalize())
+# Hello world
+
+print(s.upper())
+# HELLO WORLD
+
+print(s.lower())
+# hello world
+
+print(s.count('o'))
+# 2
+
+# Finds first occurrence and returns the index
+print(s.find('o'))
+# 4
+
+# Centers the string into given character keeping indicated length
+print(s.center(20, 'z'))
+# zzzzhello worldzzzzz
+
+# Expands tabs character. Useful when we are not printing
+print('hello \tPaula'.expandtabs())
+# hello   Paula
+
+s = 'Hello'
+
+# Checks if all characters in string are alphanumerics
+print(s.isalnum())
+# True
+
+# Checks if all characters in string are alphabetic
+print(s.isalpha())
+# True
+
+# Checks if all characters in string are lowercase
+print(s.islower())
+# False
+
+# Checks if all characters in string are uppercase
+print(s.islower())
+# False
+
+# Checks if all characters in string are whitespaces
+print(s.isspace())
+# False
+
+# Checks if string is title case
+print(s.istitle())
+# True
+
+# Checks if string ends with given characters
+print(s.endswith('lo'))
+# True
+
+# Split
+print(s.split('e'))
+# ['H', 'llo']
+
+# Partition: Similar to split but keeps the separator
+# It only splits first occurrence
+print(s.partition('e'))
+# ('H', 'e', 'llo')

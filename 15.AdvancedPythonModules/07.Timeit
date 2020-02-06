@@ -1,0 +1,15 @@
+import timeit
+
+"0-1-2-3-.........99"
+
+# Build previous string with a for loop
+print(timeit.timeit('"-".join(str(n) for n in range(100))', number=10000))
+# 0.277397713
+
+# Build the string with a list comprehension
+print(timeit.timeit('"-".join([str(n) for n in range(100)])', number=10000))
+# 0.24821331599999996
+
+# Using map function
+print(timeit.timeit('"-".join(map(str, range(100)))', number=10000))
+# 0.20746021299999995

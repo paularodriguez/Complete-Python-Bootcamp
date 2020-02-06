@@ -1,0 +1,24 @@
+# standard tuple
+t = (1, 2, 3)
+
+# indexing
+print(t[0])
+
+# named tuple assigns names to each member in the tuple
+
+from collections import namedtuple
+
+Dog = namedtuple('Dog', 'age breed name')
+
+sam = Dog(age=2, breed='Lab', name='Sammy')
+
+print(sam)
+print(sam.age)
+print(sam[0])
+print(sam.breed)
+print(sam.name)
+
+# another sample
+Cat = namedtuple('Cat', 'fur claws name')
+c = Cat(fur='Fuzzy', claws=False, name='Kitty')
+print(c)

@@ -1,0 +1,31 @@
+# Hexadecimal numbers
+
+print(hex(12))
+# 0xc
+
+# Binary
+
+print(bin(128))
+# 0b10000000
+
+# Power: is equals to 2**4
+print(pow(2, 4))
+
+# If we add a third param, it applies the mod: (x**y) % z
+print(pow(2, 4, 2))
+# 0
+
+print(pow(2, 4, 3))
+# 1
+
+# Absolute va lue
+print(abs(-3))
+# 3
+
+# Round function: By default it rounds the number to 0 decimal positions
+print(round(3.9))
+# 4
+
+# One decimal position
+print(round(4.26, 1))
+# 4.3

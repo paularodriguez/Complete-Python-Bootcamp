@@ -1,0 +1,86 @@
+s = set()
+
+s.add(1)
+s.add(2)
+s.add(3)
+
+print(s)
+# {1, 2, 3}
+
+# Clear set
+s.clear()
+print(s)
+# set()
+
+# Copy set: If then, we change the original, copy won't be changed
+s = {1, 2, 3}
+
+sc = s.copy()
+print(sc)
+# {1, 2, 3}
+
+# Difference between two sets
+s.add(4)
+
+print(s.difference(sc))
+# {4}
+
+# Difference_update: Returns first set after removing elements founds in second set
+s1 = {1, 2, 3}
+s2 = {1, 4, 5}
+s1.difference_update(s2)
+print(s1)
+# {2, 3}
+
+# Discard
+print(s)
+# {1, 2, 3, 4}
+s.discard(2)
+print(s)
+# {1, 3, 4}
+
+# Intersection
+s1 = {1, 2, 3}
+s2 = {1, 2, 4}
+print(s1.intersection(s2))
+# {1, 2}
+
+# Intersection update
+s1.intersection_update(s2)
+print(s1)
+# {1, 2}
+
+# Isdisjoint: Return True if two sets have a null intersection
+s1 = {1, 2}
+s2 = {1, 2, 4}
+s3 = {5}
+
+print(s1.isdisjoint(s2))
+# False
+print(s1.isdisjoint(s3))
+# True
+
+# Issubset: Report whether another set contains this set
+print(s1.issubset(s2))
+# True
+print(s3.issubset(s2))
+# False
+
+# Issuperset: Report whether this set contains another set
+print(s2.issuperset(s1))
+# True
+print(s3.issuperset(s2))
+# False
+
+# Symmetric difference: The opposite of intersection
+print(s1.symmetric_difference(s2))
+# {4}
+
+# Union
+print(s1.union(s2))
+# {1, 2, 4}
+
+# Update: Updates first set with union of both sets
+s1.update(s2)
+print(s1)
+# {1, 2, 4}

@@ -1,0 +1,65 @@
+l = [1, 2, 3]
+
+# Append: Adds elements to the list
+l.append(4)
+print(l)
+# [1, 2, 3, 4]
+
+# Counts the number of occurrences of given element in the list
+print(l.count(1))
+# 1
+print(l.count(10))
+# 0
+
+# Extend: Appends several elements to the list
+
+x = [1, 2, 3]
+x.append([4, 5])
+print(x)
+# [1, 2, 3, [4, 5]]
+
+x = [1, 2, 3]
+x.extend([4, 5])
+print(x)
+# [1, 2, 3, 4, 5]
+
+
+# Index
+print(l.index(2))
+# 1
+# print(l.index(50))
+# ValueError: 50 is not in list
+
+# Insert: index - element
+l.insert(1, 10)
+print(l)
+# [1, 10, 2, 3, 4]
+
+# Pop: removes last element
+removed = l.pop()
+print(l)
+# [1, 10, 2, 3]
+print(removed)
+# 4
+
+# Pop with index
+l.pop(0)
+print(l)
+# [10, 2, 3]
+
+# Remove: Removes the first occurrence of the value
+l = [1, 2, 3, 1, 2, 3]
+l.remove(3)
+print(l)
+# [1, 2, 1, 2, 3]
+
+# Reverse
+l.reverse()
+print(l)
+# [3, 2, 1, 2, 1]
+
+# Sort
+l.sort()
+print(l)
+# [1, 1, 2, 2, 3]
+
